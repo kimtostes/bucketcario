@@ -8,7 +8,7 @@ from pyspark.sql.functions import to_date, date_format
 spark = SparkSession \
   .builder \
   .master('yarn') \
-  .appName('grupo-boticario') \
+  .appName('vendas_ano_mes') \
   .config('spark.jars', 'gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar') \
   .getOrCreate()
 
