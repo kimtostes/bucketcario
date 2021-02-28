@@ -1,0 +1,5 @@
+%load_ext google.cloud.bigquery
+
+%%bigquery
+CREATE TABLE IF NOT EXISTS `grupo-boticario-305900.dataset_grupo_boticario.users_tweets` 
+(user_screen_name STRING, tweet STRING)
