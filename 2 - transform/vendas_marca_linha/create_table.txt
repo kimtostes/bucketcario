@@ -1,0 +1,6 @@
+%load_ext google.cloud.bigquery
+
+%%bigquery
+CREATE TABLE IF NOT EXISTS `grupo-boticario-305900.dataset_grupo_boticario.vendas_marca_linha` 
+(MARCA STRING, ID_LINHA INT64, LINHA STRING, QTD_VENDA INT64) 
+PARTITION BY RANGE_BUCKET(ID_LINHA, GENERATE_ARRAY(0, 500))

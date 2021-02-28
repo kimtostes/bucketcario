@@ -1,0 +1,4 @@
+%%bigquery
+CREATE TABLE IF NOT EXISTS `grupo-boticario-305900.dataset_grupo_boticario.vendas_linha_ano_mes` 
+(DATA_VENDA INT64, ID_LINHA INT64, LINHA STRING, QTD_VENDA INT64) 
+PARTITION BY RANGE_BUCKET(data_venda, GENERATE_ARRAY(201701, 203012))

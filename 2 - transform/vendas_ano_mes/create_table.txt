@@ -1,0 +1,6 @@
+%load_ext google.cloud.bigquery
+
+%%bigquery
+CREATE TABLE IF NOT EXISTS `grupo-boticario-305900.raw_grupo_boticario.vendas_ano_mes` 
+(DATA_VENDA INT64, QTD_VENDA INT64) 
+PARTITION BY RANGE_BUCKET(data_venda, GENERATE_ARRAY(201701, 201912))
