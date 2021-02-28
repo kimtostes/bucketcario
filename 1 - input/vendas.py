@@ -7,7 +7,7 @@ from google.cloud import bigquery
 spark = SparkSession \
   .builder \
   .master('yarn') \
-  .appName('grupo-boticario') \
+  .appName('vendas') \
   .config('spark.jars', 'gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar') \
   .getOrCreate()
 
