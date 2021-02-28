@@ -1,0 +1,11 @@
+%load_ext google.cloud.bigquery
+
+%%bigquery
+CREATE TABLE IF NOT EXISTS `grupo-boticario-305900.raw_grupo_boticario.vendas` 
+(
+ID_MARCA STRING,
+MARCA STRING,
+ID_LINHA STRING,
+LINHA STRING,
+DATA_VENDA STRING,
+QTD_VENDA STRING)
