@@ -15,6 +15,7 @@ spark.conf.set('temporaryGcsBucket', "bucketcario1")
 
 input_data = spark.read.option("header",True).option("delimiter", ";").csv("gs://bucketcario1/*.csv")
 input_data = input_data.select(F.col("ID_MARCA"), F.col("MARCA"), F.col("ID_LINHA"), F.col("LINHA"), F.col("DATA_VENDA"), F.col("QTD_VENDA"))
+input_data = input_data.dropDuplicates()
 
 input_data.printSchema()
 input_data.show()
