@@ -16,6 +16,8 @@ spark.conf.set('temporaryGcsBucket', 'bucketcario1')
 
 vendas_marca_ano_mes = spark.read.format("bigquery").option('table', 'grupo-boticario-305900.raw_grupo_boticario.vendas').load()
 
+vendas_marca_ano_mes = vendas_marca_ano_mes.dropDuplicates()
+
 vendas_marca_ano_mes = vendas_marca_ano_mes.select(F.col("DATA_VENDA"), F.col("MARCA"), F.col("QTD_VENDA").cast("long")).withColumn("DATA_VENDA",date_format(to_date(F.col("DATA_VENDA"),"dd/MM/yyyy"), "yyyyMM"))
 vendas_marca_ano_mes = vendas_marca_ano_mes.groupBy("DATA_VENDA", "MARCA").sum("QTD_VENDA").alias("QTD_VENDA").sort(F.col("DATA_VENDA").desc())
 vendas_marca_ano_mes = vendas_marca_ano_mes.select(F.col("DATA_VENDA").cast("long"), F.col("MARCA"), F.col("sum(QTD_VENDA)").alias("QTD_VENDA"))
